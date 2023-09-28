@@ -1,0 +1,44 @@
+mat-card {
+  padding: 0;
+
+  .length {
+    padding-left: 10px;
+  }
+}
+
+.playlists {
+
+  height: 100%;
+
+  .playlist:hover {
+    background: #ff4081;
+  }
+
+  .playlist.selected{
+    background: lightgrey;
+  }
+
+  .playlist {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-bottom: 1px lightgray solid;
+    height: 45px;
+
+    .name {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      cursor: pointer;
+      padding: 10px 8px 0px 8px;
+    }
+
+    mat-icon {
+      color: gray;
+    }
+
+    button {
+      min-width: inherit;
+      padding: 0 4px;
+    }
+  }
+}

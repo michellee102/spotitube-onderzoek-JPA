@@ -1,0 +1,14 @@
+<div class="overview flex-container"
+     fxLayout="row"
+     fxLayoutAlign="start stretch">
+  <app-playlists
+    class="flex-item playlists"
+    fxFlex="25%"
+    (selectedPlaylistChange)="playlist.setPlaylist($event)">
+  </app-playlists>
+  <app-playlist
+    #playlist
+    class="flex-item"
+    fxFlex="75%">
+  </app-playlist>
+</div>

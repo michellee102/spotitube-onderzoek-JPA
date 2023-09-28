@@ -1,0 +1,22 @@
+.details {
+  padding: 24px;
+
+  .header {
+
+    margin-bottom: 16px;
+
+    .playlistHeader {
+      margin: 0;
+    }
+  }
+
+  .mat-table {
+    overflow: auto;
+  }
+
+  .deleteButton {
+    min-width: inherit;
+    padding: 0 4px;
+  }
+}
+

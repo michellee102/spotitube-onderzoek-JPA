@@ -1,0 +1,34 @@
+<mat-toolbar color="primary">
+  <span class="title">
+      <mat-icon>queue_music</mat-icon>DEA Spotitube
+  </span>
+  <div *ngIf="user && serverUrl"
+       class="mat-body-2">
+    {{user}}@{{serverUrl}}
+  </div>
+  <button mat-icon-button [mat-menu-trigger-for]="settings">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu x-position="before" y-position="below" #settings="matMenu">
+    <button [disabled]="!serverUrl && !user" mat-menu-item (click)="logout()">
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+
+<app-playlists-overview
+  class="content"
+  *ngIf="user && serverUrl">
+</app-playlists-overview>
+<div *ngIf="!user || !serverUrl"
+     class="content flex-container"
+     fxLayout="row"
+     fxLayoutAlign="center">
+  <app-login
+    class="flex-item"
+    fxFlexAlign="center">
+  </app-login>
+</div>
+
+
+
