@@ -7,9 +7,7 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
-import static java.lang.System.out;
-
-public class TestApp {
+public class SetupSessionFactory {
 
   private SessionFactory sessionFactory;
 
@@ -33,20 +31,23 @@ public class TestApp {
     }
   }
 
-
-  protected void test(){
-    sessionFactory.inTransaction(session -> {
-      session.persist(new User("bla", "fdsfdsfdsf", "hii"));
-    });
+  public SessionFactory getSessionFactory() {
+    return sessionFactory;
   }
 
-  protected void getData(){
-    sessionFactory.inTransaction(session -> {
-      session.createSelectionQuery("from User", User.class)
-        .getResultList()
-        .forEach(user -> out.println("User (" + user.getUser() + ") : " + user.getToken()));
-    });
-  }
+  //  protected void test(){
+//    sessionFactory.inTransaction(session -> {
+//      session.persist(new User("bla", "fdsfdsfdsf", "hii"));
+//    });
+//  }
+//
+//  protected void getData(){
+//    sessionFactory.inTransaction(session -> {
+//      session.createSelectionQuery("from User", User.class)
+//        .getResultList()
+//        .forEach(user -> out.println("User (" + user.getUser() + ") : " + user.getToken()));
+//    });
+//  }
 
 
 
