@@ -9,6 +9,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 public class SetupSessionFactory {
 
+  // Hetzelfde als EntityManagerFactory in JPA
   private SessionFactory sessionFactory;
 
   protected void setUp() {

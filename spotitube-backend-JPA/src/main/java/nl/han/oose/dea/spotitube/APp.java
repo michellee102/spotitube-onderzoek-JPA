@@ -24,6 +24,7 @@ public class APp {
     User testUser = new User("miessschelle", "fdsfdsfds", "password9324324");
 
     // Start de verbinding
+    // session: Hetzelfde als EntityManager in JPA
     try (Session session = sessionFactoryManager.getSessionFactory().openSession()) {
       // begin transactie
       session.beginTransaction();
