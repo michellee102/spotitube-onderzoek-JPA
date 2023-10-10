@@ -54,7 +54,6 @@ public class UserDAOImpl implements UserDAO {
     } catch (SQLException e) {
       throw new RuntimeException(e);
     }
-
   }
 
   @Override
