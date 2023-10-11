@@ -11,6 +11,7 @@ import nl.han.oose.dea.spotitube.business.dto.LoginRequestDTO;
 import nl.han.oose.dea.spotitube.business.dto.LoginResponseDTO;
 import nl.han.oose.dea.spotitube.interfaces.services.UserService;
 
+
 @Path("/login")
 public class LoginResource {
   private UserService userService;

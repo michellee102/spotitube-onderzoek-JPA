@@ -1,6 +1,6 @@
 package nl.han.oose.dea.spotitube;
 
-import nl.han.oose.dea.spotitube.business.dto.JPA.User;
+import nl.han.oose.dea.spotitube.data_access.models.User;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;

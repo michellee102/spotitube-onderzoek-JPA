@@ -1,5 +1,7 @@
 package nl.han.oose.dea.spotitube.data_access.dao;
 
+import jakarta.enterprise.inject.Alternative;
+import jakarta.enterprise.inject.Default;
 import jakarta.inject.Inject;
 import nl.han.oose.dea.spotitube.business.exceptions.UnauthorizedException;
 import nl.han.oose.dea.spotitube.data_access.data_mappers.UserMapper;
@@ -12,6 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+@Alternative
 public class UserDAOImpl implements UserDAO {
   private final Connection CONNECTION;
 
@@ -54,6 +57,7 @@ public class UserDAOImpl implements UserDAO {
     } catch (SQLException e) {
       throw new RuntimeException(e);
     }
+
   }
 
   @Override
@@ -67,7 +71,7 @@ public class UserDAOImpl implements UserDAO {
       if (resultSet.next()){
         user = new UserMapper().map(resultSet);
       } else {
-          throw new UnauthorizedException("No user found with the provided token.");
+        throw new UnauthorizedException("No user found with the provided token.");
       }
     } catch (SQLException e){
       throw new RuntimeException(e);

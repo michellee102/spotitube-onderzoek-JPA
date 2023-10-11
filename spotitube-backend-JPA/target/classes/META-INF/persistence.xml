@@ -5,21 +5,20 @@
 
   <persistence-unit name="spotitube-jpa">
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-    <class>nl.han.oose.dea.spotitube.business.dto.JPA.User</class>
+    <class>nl.han.oose.dea.spotitube.data_access.models.User</class>
 
     <properties>
       <!-- Database connection settings -->
       <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/spotitubejpa" />
       <property name="jakarta.persistence.jdbc.user" value="root" />
       <property name="jakarta.persistence.jdbc.password" value="Mijo-200126" />
-
-<!--      &lt;!&ndash; Automatically export the schema &ndash;&gt;-->
-<!--      <property name="jakarta.persistence.schema-generation.database.action" value="create" />-->
+      <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
 
       <!-- Echo all executed SQL to console -->
-      <property name="hibernate.show_sql" value="true" />
-      <property name="hibernate.format_sql" value="true" />
-      <property name="hibernate.highlight_sql" value="true" />
+<!--      <property name="hibernate.show_sql" value="true" />-->
+<!--      <property name="hibernate.format_sql" value="true" />-->
+<!--      <property name="hibernate.highlight_sql" value="true" />-->
+      <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
     </properties>
 
   </persistence-unit>

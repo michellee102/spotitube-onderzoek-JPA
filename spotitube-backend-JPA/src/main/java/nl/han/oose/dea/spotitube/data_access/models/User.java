@@ -1,7 +1,12 @@
 package nl.han.oose.dea.spotitube.data_access.models;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "users")
 public class User {
-  private int id;
+
+  @Id
   private String username;
   private String password;
   private String token;
@@ -14,6 +19,10 @@ public class User {
 
   public User(String username) {
     this.username = username;
+  }
+
+  public User() {
+
   }
 
   public void setUsername(String username) {
