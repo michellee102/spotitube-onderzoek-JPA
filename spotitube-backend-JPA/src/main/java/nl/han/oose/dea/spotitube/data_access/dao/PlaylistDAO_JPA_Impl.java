@@ -43,11 +43,8 @@ public class PlaylistDAO_JPA_Impl implements PlaylistDAO {
   public void updateName(int playlistId, String newName, String ownersName) throws PlaylistNotFoundException {
     try {
       entityManager.getTransaction().begin();
-      Query query = entityManager.createQuery("UPDATE Playlist SET name = :name WHERE username = :username AND id = :id", Playlist.class);
-      query.setParameter("name", newName);
-      query.setParameter("username", ownersName);
-      query.setParameter("id", playlistId);
-      query.executeUpdate();
+      Playlist playlist = entityManager.find(Playlist.class, playlistId);
+      playlist.setName(newName);
     } catch (NoResultException e) {
       throw new PlaylistNotFoundException("No playlist found with the given id.");
     } finally {
