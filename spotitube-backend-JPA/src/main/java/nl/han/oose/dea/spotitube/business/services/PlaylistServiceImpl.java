@@ -39,6 +39,7 @@ public class PlaylistServiceImpl implements PlaylistService {
   public PlaylistsDTO getPlaylists(String token) {
     User user = userService.getUserByToken(token);
     Playlists playlists = playlistDAO.findPlaylistsByUsername(user.getUsername());
+    System.out.println("GAAT GOED TOT HIERRRRRRRRRRRRRR");
     this.addTracksToPlaylists(playlists, user.getUsername());
     return new PlaylistsDTO(PLAYLIST_MAPPER.mapToAllPlaylistsResponseDTO(playlists), calculatePlaylistLength(playlists));
   }
@@ -99,6 +100,7 @@ public class PlaylistServiceImpl implements PlaylistService {
 
   public void addTracksToPlaylists(Playlists playlists, String username){
      playlists.getPlaylists().forEach(playlist -> {
+       System.out.println("NAME: " + playlist.getName());
       List<Track> tracks = playlistDAO.getTracksFromPlaylist(playlist.getId(), username);
       playlist.setTracks(tracks);
     });

@@ -1,5 +1,6 @@
 package nl.han.oose.dea.spotitube.data_access.dao;
 
+import jakarta.enterprise.inject.Alternative;
 import jakarta.inject.Inject;
 import nl.han.oose.dea.spotitube.business.exceptions.TrackNotFoundException;
 import nl.han.oose.dea.spotitube.data_access.models.Track;
@@ -14,6 +15,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+@Alternative
 public class TrackDAOImpl implements TrackDAO {
   private final Connection CONNECTION;
 

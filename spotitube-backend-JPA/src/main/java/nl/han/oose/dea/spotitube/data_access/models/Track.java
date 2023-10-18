@@ -1,6 +1,13 @@
 package nl.han.oose.dea.spotitube.data_access.models;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "tracks")
 public class Track {
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
   private String title;
   private String performer;
@@ -10,6 +17,9 @@ public class Track {
   private String publicationDate;
   private String description;
   private boolean offlineAvailable;
+
+  @ManyToOne()
+  private Playlist playlist;
 
   public Track(int id, String title, String performer, int duration, String album, int playCount, String publicationDate, String description, boolean offlineAvailable) {
     this.id = id;
@@ -28,6 +38,10 @@ public class Track {
     this.title = title;
     this.performer = performer;
     this.duration = duration;
+  }
+
+  public Track() {
+
   }
   // Getters and setters
 

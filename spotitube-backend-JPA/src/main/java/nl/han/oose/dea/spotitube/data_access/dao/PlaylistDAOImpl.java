@@ -1,5 +1,6 @@
 package nl.han.oose.dea.spotitube.data_access.dao;
 
+import jakarta.enterprise.inject.Alternative;
 import jakarta.inject.Inject;
 import nl.han.oose.dea.spotitube.business.dto.PlaylistDTO;
 import nl.han.oose.dea.spotitube.business.dto.TrackDTO;
@@ -19,6 +20,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
+@Alternative
 public class PlaylistDAOImpl implements PlaylistDAO {
   private final Connection CONNECTION;
   private final Logger LOGGER = Logger.getLogger(getClass().getName());

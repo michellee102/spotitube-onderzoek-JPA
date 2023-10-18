@@ -1,13 +1,21 @@
 package nl.han.oose.dea.spotitube.data_access.models;
 
+import jakarta.persistence.*;
+
 import java.util.List;
 
+@Entity
+@Table(name = "playlists")
 public class Playlist {
-  private final int id;
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private int id;
   private String name;
   private boolean owner;
   private String username;
 
+  @OneToMany(mappedBy = "playlist")
   private List<Track> tracks;
 
   public Playlist(int id, String name, boolean owner, String username, List<Track> tracks) {
@@ -16,6 +24,15 @@ public class Playlist {
     this.owner = owner;
     this.username = username;
     this.tracks = tracks;
+  }
+
+  public Playlist(String name, boolean owner, String username){
+    this.name = name;
+    this.owner = owner;
+    this.username = username;
+  }
+
+  public Playlist() {
   }
 
   public int getId() {

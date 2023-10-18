@@ -6,6 +6,8 @@
   <persistence-unit name="spotitube-jpa">
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
     <class>nl.han.oose.dea.spotitube.data_access.models.User</class>
+    <class>nl.han.oose.dea.spotitube.data_access.models.Playlist</class>
+    <class>nl.han.oose.dea.spotitube.data_access.models.Track</class>
 
     <properties>
       <!-- Database connection settings -->
@@ -13,12 +15,14 @@
       <property name="jakarta.persistence.jdbc.user" value="root" />
       <property name="jakarta.persistence.jdbc.password" value="Mijo-200126" />
       <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+      <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+      <property name="hibernate.hbm2ddl.auto" value="update" />
+
 
       <!-- Echo all executed SQL to console -->
-<!--      <property name="hibernate.show_sql" value="true" />-->
-<!--      <property name="hibernate.format_sql" value="true" />-->
-<!--      <property name="hibernate.highlight_sql" value="true" />-->
-      <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+      <!--      <property name="hibernate.show_sql" value="true" />-->
+      <!--      <property name="hibernate.format_sql" value="true" />-->
+      <!--      <property name="hibernate.highlight_sql" value="true" />-->
     </properties>
 
   </persistence-unit>
