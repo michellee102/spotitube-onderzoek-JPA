@@ -2,6 +2,7 @@ package nl.han.oose.dea.spotitube.data_access.models;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -30,6 +31,7 @@ public class Playlist {
     this.name = name;
     this.owner = owner;
     this.username = username;
+    this.tracks = new ArrayList<>();
   }
 
   public Playlist() {

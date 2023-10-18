@@ -25,7 +25,7 @@ public class PlaylistDAO_JPA_Impl implements PlaylistDAO {
 
   @Override
   public Playlists findPlaylistsByUsername(String username) {
-    List<Playlist> playlists = new ArrayList<>();
+    List<Playlist> playlists;
     try {
       entityManager.getTransaction().begin();
       TypedQuery<Playlist> query = entityManager.createQuery("SELECT p FROM Playlist p WHERE p.username = :username", Playlist.class);
@@ -60,9 +60,8 @@ public class PlaylistDAO_JPA_Impl implements PlaylistDAO {
   public void addPlaylist(String username, PlaylistDTO playlistDTO) {
     try {
       entityManager.getTransaction().begin();
-//      Playlist playlist = new Playlist(playlistDTO.getName(), playlistDTO.isOwner(), username);
-
-      entityManager.persist(new Playlist("testttt", true, "lilou"));
+      Playlist playlist = new Playlist(playlistDTO.getName(), playlistDTO.isOwner(), username);
+      entityManager.persist(playlist);
     } catch (NoResultException e) {
       throw new RuntimeException(e);
     } finally {
@@ -77,7 +76,7 @@ public class PlaylistDAO_JPA_Impl implements PlaylistDAO {
 
   @Override
   public List<Track> getTracksFromPlaylist(int playlistId, String username) {
-    List<Track> tracks = new ArrayList<>();
+    List<Track> tracks;
     try {
       entityManager.getTransaction().begin();
       TypedQuery<Track> query = entityManager.createQuery("SELECT t FROM Track t JOIN t.playlist p WHERE p.id = :playlistId AND p.username = :username", Track.class);
