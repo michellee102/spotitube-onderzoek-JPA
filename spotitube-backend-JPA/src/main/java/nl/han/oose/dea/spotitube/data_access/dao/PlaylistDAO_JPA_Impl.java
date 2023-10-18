@@ -31,7 +31,6 @@ public class PlaylistDAO_JPA_Impl implements PlaylistDAO {
       TypedQuery<Playlist> query = entityManager.createQuery("SELECT p FROM Playlist p WHERE p.username = :username", Playlist.class);
       query.setParameter("username", username);
       playlists = query.getResultList();
-//      playlists.forEach(playlist -> playlist.setTracks(new ArrayList<>()));
       return new Playlists(playlists);
     } catch (NoResultException e) {
       throw new PlaylistNotFoundException("Could not find any playlists by the username " + username);
@@ -60,7 +59,7 @@ public class PlaylistDAO_JPA_Impl implements PlaylistDAO {
   public void addPlaylist(String username, PlaylistDTO playlistDTO) {
     try {
       entityManager.getTransaction().begin();
-      Playlist playlist = new Playlist(playlistDTO.getName(), playlistDTO.isOwner(), username);
+      Playlist playlist = new Playlist(playlistDTO.getName(), true, username);
       entityManager.persist(playlist);
     } catch (NoResultException e) {
       throw new RuntimeException(e);
@@ -71,7 +70,15 @@ public class PlaylistDAO_JPA_Impl implements PlaylistDAO {
 
   @Override
   public void deletePlaylist(int playlistId, String username) {
-
+    try {
+      entityManager.getTransaction().begin();
+      Playlist playlist = entityManager.find(Playlist.class, playlistId);
+      entityManager.remove(playlist);
+    } catch (NoResultException e){
+      throw new PlaylistNotFoundException("Could not find playlist with id " + playlistId);
+    } finally {
+      entityManager.getTransaction().commit();
+    }
   }
 
   @Override
@@ -98,6 +105,12 @@ public class PlaylistDAO_JPA_Impl implements PlaylistDAO {
 
   @Override
   public void deleteTrackFromPlaylist(int trackID) {
+      try {
 
+      } catch (NoResultException e){
+
+      } finally {
+        entityManager.getTransaction().commit();
+      }
   }
 }
