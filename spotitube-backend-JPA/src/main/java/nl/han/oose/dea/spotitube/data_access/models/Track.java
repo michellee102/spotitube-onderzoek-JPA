@@ -116,4 +116,12 @@ public class Track {
   public void setOfflineAvailable(boolean offlineAvailable) {
     this.offlineAvailable = offlineAvailable;
   }
+
+  public Playlist getPlaylist() {
+    return playlist;
+  }
+
+  public void setPlaylist(Playlist playlist) {
+    this.playlist = playlist;
+  }
 }

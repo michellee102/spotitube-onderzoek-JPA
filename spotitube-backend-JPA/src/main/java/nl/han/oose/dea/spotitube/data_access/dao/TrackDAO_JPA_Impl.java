@@ -16,10 +16,10 @@ public class TrackDAO_JPA_Impl implements TrackDAO {
   private EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
   @Override
   public List<Track> getAvailableTracks(int playlistId, String username) {
-    List<Track> tracks = new ArrayList<>();
+    List<Track> tracks;
     try {
       entityManager.getTransaction().begin();
-      TypedQuery<Track> query = entityManager.createQuery("SELECT t FROM Track t WHERE t.id != :playlistId OR :playlistId IS NULL", Track.class);
+      TypedQuery<Track> query = entityManager.createQuery("SELECT t FROM Track t WHERE t.playlist.id != :playlistId OR t.playlist.id IS NULL", Track.class);
       query.setParameter("playlistId", playlistId);
       tracks = query.getResultList();
     } catch (NoResultException e) {

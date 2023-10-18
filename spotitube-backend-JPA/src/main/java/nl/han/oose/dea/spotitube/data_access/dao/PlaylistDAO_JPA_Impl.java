@@ -97,15 +97,27 @@ public class PlaylistDAO_JPA_Impl implements PlaylistDAO {
 
   @Override
   public void addTrackToPlaylist(TrackDTO track, int playlistId) {
-
+    try {
+      entityManager.getTransaction().begin();
+      Track trackToAdd = entityManager.find(Track.class, track.getId());
+      trackToAdd.setOfflineAvailable(track.isOfflineAvailable());
+      Playlist playlist = entityManager.find(Playlist.class, playlistId);
+      trackToAdd.setPlaylist(playlist);
+    } catch (NoResultException e){
+      throw new RuntimeException(e);
+    } finally {
+      entityManager.getTransaction().commit();
+    }
   }
 
   @Override
   public void deleteTrackFromPlaylist(int trackID) {
       try {
-
+        entityManager.getTransaction().begin();
+        Track track = entityManager.find(Track.class, trackID);
+        track.setPlaylist(null);
       } catch (NoResultException e){
-
+        throw new RuntimeException(e);
       } finally {
         entityManager.getTransaction().commit();
       }
