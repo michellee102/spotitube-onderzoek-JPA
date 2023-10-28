@@ -1,13 +1,11 @@
 package nl.han.oose.dea.spotitube.data_access.dao;
 
-import jakarta.enterprise.inject.Alternative;
 import jakarta.enterprise.inject.Default;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
-import nl.han.oose.dea.spotitube.JPAUtil;
+import nl.han.oose.dea.spotitube.data_access.util.JPAUtil;
 import nl.han.oose.dea.spotitube.business.exceptions.UnauthorizedException;
-import nl.han.oose.dea.spotitube.business.exceptions.UserNotFoundException;
 import nl.han.oose.dea.spotitube.data_access.models.User;
 import nl.han.oose.dea.spotitube.interfaces.dao.UserDAO;
 

@@ -3,19 +3,16 @@ package nl.han.oose.dea.spotitube.data_access.dao;
 import jakarta.enterprise.inject.Default;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
-import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
-import nl.han.oose.dea.spotitube.JPAUtil;
+import nl.han.oose.dea.spotitube.data_access.util.JPAUtil;
 import nl.han.oose.dea.spotitube.business.dto.PlaylistDTO;
 import nl.han.oose.dea.spotitube.business.dto.TrackDTO;
-import nl.han.oose.dea.spotitube.business.exceptions.CouldNotAddPlaylistException;
 import nl.han.oose.dea.spotitube.business.exceptions.PlaylistNotFoundException;
 import nl.han.oose.dea.spotitube.data_access.models.Playlist;
 import nl.han.oose.dea.spotitube.data_access.models.Playlists;
 import nl.han.oose.dea.spotitube.data_access.models.Track;
 import nl.han.oose.dea.spotitube.interfaces.dao.PlaylistDAO;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Default

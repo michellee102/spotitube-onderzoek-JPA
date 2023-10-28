@@ -33,6 +33,17 @@ public class Track {
     this.offlineAvailable = offlineAvailable;
   }
 
+  public Track(String title, String performer, int duration, String album, int playCount, String publicationDate, String description, boolean offlineAvailable) {
+    this.title = title;
+    this.performer = performer;
+    this.duration = duration;
+    this.album = album;
+    this.playCount = playCount;
+    this.publicationDate = publicationDate;
+    this.description = description;
+    this.offlineAvailable = offlineAvailable;
+  }
+
   public Track(int id, String title, String performer, int duration) {
     this.id = id;
     this.title = title;

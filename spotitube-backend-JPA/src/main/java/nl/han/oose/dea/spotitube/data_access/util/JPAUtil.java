@@ -1,4 +1,4 @@
-package nl.han.oose.dea.spotitube;
+package nl.han.oose.dea.spotitube.data_access.util;
 
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -13,12 +13,6 @@ public class JPAUtil {
       entityManagerFactory  = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
     }
     return entityManagerFactory ;
-  }
-
-  public static void shutdown() {
-    if (entityManagerFactory  != null) {
-      entityManagerFactory .close();
-    }
   }
 
 }

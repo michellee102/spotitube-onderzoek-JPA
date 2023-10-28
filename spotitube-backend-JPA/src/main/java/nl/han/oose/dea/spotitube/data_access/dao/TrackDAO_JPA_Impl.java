@@ -4,11 +4,10 @@ import jakarta.enterprise.inject.Default;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
-import nl.han.oose.dea.spotitube.JPAUtil;
+import nl.han.oose.dea.spotitube.data_access.util.JPAUtil;
 import nl.han.oose.dea.spotitube.data_access.models.Track;
 import nl.han.oose.dea.spotitube.interfaces.dao.TrackDAO;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Default
