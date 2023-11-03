@@ -1,4 +1,4 @@
-package nl.han.oose.dea.spotitube.data_access;
+package nl.han.oose.dea.spotitube.data_access.performance;
 
 import jakarta.persistence.EntityManager;
 import nl.han.oose.dea.spotitube.data_access.models.Track;
@@ -12,25 +12,6 @@ import java.sql.SQLException;
 public class PerformanceTester {
 
   private EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
-
-  public void testJPA50Inserts(){
-    int numberOfInserts = 50;
-    long startTime = System.currentTimeMillis();
-
-    Track track = new Track("Shape of You", "Ed Sheeran", 233, "÷", 5832946, "2017-01-06", "Hit single from Ed Sheeran", true);
-    entityManager.getTransaction().begin();
-    for (int i = 0; i < numberOfInserts; i++){
-      entityManager.persist(track);
-    }
-
-    entityManager.getTransaction().commit();
-    entityManager.close();
-
-    long endTime = System.currentTimeMillis();
-    long executionTime = endTime - startTime;
-
-    System.out.println("JPA Insert Time for " + numberOfInserts + " inserts: " + executionTime + " ms");
-  }
 
   public void testJPAInserts(int numOfInserts){
     long startTime = System.currentTimeMillis();

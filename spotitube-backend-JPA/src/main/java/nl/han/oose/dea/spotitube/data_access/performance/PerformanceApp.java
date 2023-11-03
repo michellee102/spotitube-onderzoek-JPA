@@ -1,13 +1,8 @@
-package nl.han.oose.dea.spotitube;
-
-import jakarta.persistence.EntityManager;
-import nl.han.oose.dea.spotitube.data_access.PerformanceTester;
-import nl.han.oose.dea.spotitube.data_access.dao.UserDAO_JPA_Impl;
-import nl.han.oose.dea.spotitube.data_access.util.JPAUtil;
+package nl.han.oose.dea.spotitube.data_access.performance;
 
 import java.sql.SQLException;
 
-public class TestPerformanceApp {
+public class PerformanceApp {
   public static void main(String[] args) throws SQLException {
     PerformanceTester performanceTester = new PerformanceTester();
 
